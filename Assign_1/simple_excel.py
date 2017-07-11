@@ -15,7 +15,7 @@ operator = {
 
 ######setValue########
 def setValue():
-    s=raw_input('Enter set value command in format <DestinationCell> = value :')
+    s = raw_input('Enter set value command in format <DestinationCell> = value :')
     df.ix[int(s[1]),s[0]] = int(s.split()[-1])
 
     if input_2:
@@ -42,8 +42,8 @@ d = {chr(k+65) :[' ' for i in range(0,10)] for j in range(0,10*10,10) for k in r
 
 df = pd.DataFrame(d)
 
-setExpression_commands =[]
-iterator=0
+setExpression_commands = []
+iterator = 0
 
 
 while True:
