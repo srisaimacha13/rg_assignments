@@ -43,7 +43,6 @@ d = {chr(k+65) :[' ' for i in range(0,10)] for j in range(0,10*10,10) for k in r
 df = pd.DataFrame(d)
 
 setExpression_commands = []
-iterator = 0
 
 
 while True:
@@ -55,8 +54,8 @@ while True:
         setValue()
     if main_input.strip() == '2':
         setExpression_commands.append(raw_input("Enter Set Expression Command in format <DestinationCell> = <Cell1> <operator> <Cell2> :"))
-        print setExpression(setExpression_commands[iterator])
-        iterator = iterator + 1
+        print setExpression(setExpression_commands[-1])
+       
     if main_input.strip() == '3':
         print "Bye!"
         exit()
