@@ -8,7 +8,7 @@ class MyError(Exception):
 import re
 
 try:
-    input_string = raw_input()
+    input_string = raw_input('Enter a String:\n')
     if not input_string:
         raise MyError('String is empty.')
 
