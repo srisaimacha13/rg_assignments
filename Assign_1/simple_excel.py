@@ -3,7 +3,7 @@ import operator
 
 input_2 =[]
 i=0 
-oper = {
+operator = {
         '+' : operator.add,
         '-' : operator.sub,
         '*' : operator.mul,
@@ -34,7 +34,7 @@ def setValue():
 def setExpression(com):
     if com:
         try:
-            df.ix[int(com[1]),com[0]] = oper[com.split()[3]](df.ix[int(com.split()[2][1]),com.split()[2][0]],df.ix[int(com.split()[4][1]),com.split()[4][0]])
+            df.ix[int(com[1]),com[0]] = operator[com.split()[3]](df.ix[int(com.split()[2][1]),com.split()[2][0]],df.ix[int(com.split()[4][1]),com.split()[4][0]])
         except ZeroDivisionError:
             print "denominator is zero"
     return df    
