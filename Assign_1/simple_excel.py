@@ -1,8 +1,8 @@
 import pandas as pd
 import operator
 
-input_2 =[]
-i=0 
+#######operatorsdictionary######
+
 operator = {
         '+' : operator.add,
         '-' : operator.sub,
@@ -12,10 +12,6 @@ operator = {
         '^' : operator.xor,
         '**': operator.pow
         }
-
-
-d={chr(k+65) :[' ' for i in range(0,10)] for j in range(0,10*10,10) for k in range(0,10)}
-df=pd.DataFrame(d)
 
 ######setValue########
 def setValue():
@@ -38,21 +34,30 @@ def setExpression(com):
         except ZeroDivisionError:
             print "denominator is zero"
     return df    
+
+
 #####ActionList#######
+
+d = {chr(k+65) :[' ' for i in range(0,10)] for j in range(0,10*10,10) for k in range(0,10)} #empty dictionary
+
+df = pd.DataFrame(d)
+
+setExpression_commands =[]
+iterator=0
 
 
 while True:
     main_input = str(raw_input("Action List: \n 1) Set Value \n 2) Set Expression \n 3) Exit \nEnter your action choice:\t"))
     
-    if main_input == '1':
+    if main_input.strip() == '1':
         
         #input_1 = "C1 = 11"
         setValue()
-    if main_input == '2':
-        input_2.append(raw_input("Enter Set Expression Command in format <DestinationCell> = <Cell1> <operator> <Cell2> :"))
-        print setExpression(input_2[i])
-        i=i+1
-    if main_input == '3':
+    if main_input.strip() == '2':
+        setExpression_commands.append(raw_input("Enter Set Expression Command in format <DestinationCell> = <Cell1> <operator> <Cell2> :"))
+        print setExpression(setExpression_commands[iterator])
+        iterator = iterator + 1
+    if main_input.strip() == '3':
         print "Bye!"
         exit()
     else:
