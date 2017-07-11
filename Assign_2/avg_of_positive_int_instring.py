@@ -6,26 +6,35 @@ class MyError(Exception):
 
 
 import re
-s=raw_input()
+
 try:
-    a=re.findall('-?\d+',s)
-    if not a:
-        raise MyError('')
-    a=list(map(float,a))
-    def avg(a):
+    input_string = raw_input()
+    if not input_string:
+        raise MyError('String is empty.')
+
+    
+    list_of_integers = re.findall('-?\d+',input_string)
+
+    if not list_of_integers:
+        raise MyError('String contains all characters or special characters.')
+
+    list_of_integers = list(map(float,list_of_integers))
+
+    def avg(list_of_integers):
     
         count=0
         sum=0
-        for x in a:
+        for x in list_of_integers:
             if x>0:
                 count=count+1
                 sum=sum+x
+        if count == 0:
+            raise MyError('No positive integers in string')
         return sum/count
-    print avg(a)
+    print avg(list_of_integers)
         
-except (MyError , ZeroDivisionError):
-    print 'No positive integers in the string'
-
+except MyError as e:
+    print e
 
 
 
