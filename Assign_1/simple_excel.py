@@ -18,10 +18,10 @@ def setValue():
     s = raw_input('Enter set value command in format <DestinationCell> = value :')
     df.ix[int(s[1]),s[0]] = int(s.split()[-1])
 
-    if input_2:
-        for i in range(0,len(input_2)):
+    if setExpression_commands:
+        for i in range(0,len(setExpression_commands)):
             
-             setExpression(input_2[i])
+             setExpression(setExpression_commands[i])
         
     print df
 
